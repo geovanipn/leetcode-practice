@@ -4,24 +4,21 @@
  * @return {number}
  */
 const lengthOfLongestSubstring = function(s) {
-    const sequences = [];
+    const set = new Set();
+    let maxSize = 0;
+    let left = 0;
     for (let i = 0; i < s.length; i++) {
-        let sequence = s[i];
-        let nextIndex = i + 1;
-        while (nextIndex < s.length) {
-            let nextCharacter = s[nextIndex];
-            if (sequence.includes(nextCharacter)) {
-                break;
-            }
 
-            sequence = `${sequence}${nextCharacter}`;
-            nextIndex++;
+        while (set.has(s[i])) {
+            set.delete(s[left])
+            left++;
         }
-        sequences.push(sequence);
+
+        set.add(s[i]);
+        maxSize = Math.max(maxSize, i - left + 1);
     }
 
-    const longest = sequences.reduce((a, b) => b.length > a.length ? b : a);
-    return longest.length;
+    return maxSize;
 };
 
 module.exports = lengthOfLongestSubstring;

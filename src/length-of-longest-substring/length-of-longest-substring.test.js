@@ -3,8 +3,7 @@ const assert = require('assert');
 const lengthOfLongestSubstring = require("./length-of-longest-substring");
 
 describe('Longest Substring Without Repeating Characters', function () {
-    describe('Given a string s, find the length of the longest \n' +
-        'substring without repeating characters.', function () {
+    describe('Given a string s, find the length of the longest substring without repeating characters.', function () {
         const cases = [
             {
                 stringValue: 'abcabcbb',
@@ -25,7 +24,7 @@ describe('Longest Substring Without Repeating Characters', function () {
         ]
 
         cases.forEach(testCase => {
-            it(`string ${testCase.stringValue}, longest substring length should be ${testCase.result}`, function () {
+            it(`string '${testCase.stringValue}', longest substring length should be ${testCase.result}`, function () {
                 const result = lengthOfLongestSubstring(testCase.stringValue);
                 assert.deepStrictEqual(testCase.result, result);
             });
