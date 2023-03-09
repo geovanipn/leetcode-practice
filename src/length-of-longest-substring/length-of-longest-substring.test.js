@@ -19,11 +19,15 @@ describe('Longest Substring Without Repeating Characters', function () {
             },
             {
                 stringValue: 'sub of substring from string',
-                result: 8
+                result: 10
             },
             {
                 stringValue: 'asdfasdfghjklasdf',
                 result: 9
+            },
+            {
+                stringValue: 'dvdf',
+                result: 3
             }
         ]
 
