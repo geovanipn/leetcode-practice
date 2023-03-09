@@ -4,18 +4,19 @@
  * @return {number}
  */
 const lengthOfLongestSubstring = function(s) {
-    const set = new Set();
+    let chars = {};
     let maxSize = 0;
-    let left = 0;
+    let currentSize = 0;
     for (let i = 0; i < s.length; i++) {
 
-        while (set.has(s[i])) {
-            set.delete(s[left])
-            left++;
+        if (s[i] in chars) {
+            chars = {};
+            currentSize = 0;
         }
 
-        set.add(s[i]);
-        maxSize = Math.max(maxSize, i - left + 1);
+        chars[s[i]] = i;
+        currentSize++;
+        maxSize = Math.max(maxSize, currentSize);
     }
 
     return maxSize;

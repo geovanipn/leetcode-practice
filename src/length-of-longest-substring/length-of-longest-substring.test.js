@@ -19,8 +19,12 @@ describe('Longest Substring Without Repeating Characters', function () {
             },
             {
                 stringValue: 'sub of substring from string',
-                result: 10
+                result: 8
             },
+            {
+                stringValue: 'asdfasdfghjklasdf',
+                result: 9
+            }
         ]
 
         cases.forEach(testCase => {
